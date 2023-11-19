@@ -1,11 +1,13 @@
 // Add imports above this line
 import { galleryItems } from './gallery-items';
 // Change code below this line
-import SimpleLightbox from "simplelightbox";
-import "simplelightbox/dist/simple-lightbox.min.css";
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const container = document.querySelector('.gallery');
 const itemsMarkup = createMarkup(galleryItems);
+
+container.insertAdjacentHTML('beforeend', itemsMarkup);
 
 function createMarkup(items) {
     return items
@@ -21,8 +23,6 @@ function createMarkup(items) {
 </li>`)
         .join('');
 }
-
-container.insertAdjacentHTML('beforeend', itemsMarkup);
 
 const lightbox = new SimpleLightbox('.gallery a', {
 captionsData: 'alt',
